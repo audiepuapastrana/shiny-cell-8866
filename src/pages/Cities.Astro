@@ -1,76 +1,20 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+// layouts/BlogPost.astro
+const { title, description, pubDate, heroImage } = Astro.props;
 ---
-
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('May 27 2025')}
-	heroImage="/blog-placeholder-about.jpg"
->	
-
-<h2>North America</h2>
-<ul>
-  <li>Los Angeles, US</li>
-  <li>Palmdale, US</li>
-  <li>Minneapolis/St.Paul, US</li>
-  <li>Las Vegas, US</li>
-  <li>Campbell, US</li>
-  <li>Oakland, US</li>
-  <li>San Jose, US</li>
-  <li>Santa Cruz, US</li>
-  <li>Fort Hunter Liggett, US</li>
-  <li>Seattle, US</li>
-  <li>Portland, US</li>
-  <li>Austin, US</li>
-  <li>Milwaukee, US</li>
-  <li>Chicago, US</li>
-  <li>Vancouver, CA</li>
-  <li>Toronto, CA</li>
-  <li>Tijuana, MX</li>
-  <li>Oaxaca City, MX</li>
-  <li>Mexico City, MX</li>
-</ul>
-
-<h2>Central America & Caribbean</h2>
-<ul>
-  <li>Caye Caulker, BZ</li>
-  <li>Belize City, BZ</li>
-  <li>Tikal, GT</li>
-  <li>Guatemala City, GT</li>
-  <li>San Jose Costa Rica, CR</li>
-</ul>
-
-<h2>Europe</h2>
-<ul>
-  <li>Dublin, IE</li>
-  <li>Lisbon, PT</li>
-  <li>Paris, FR</li>
-  <li>Milan, IT</li>
-  <li>Rome, IT</li>
-  <li>Florence, IT</li>
-</ul>
-
-<h2>Africa</h2>
-<ul>
-  <li>Agadir, MA</li>
-</ul>
-
-<h2>Asia</h2>
-<ul>
-  <li>Bangkok, TH</li>
-  <li>Phuket, TH</li>
-  <li>Saigon, VN</li>
-  <li>Hong Kong, HK</li>
-  <li>Manila, PH</li>
-</ul>
-
-<h2>Oceania & Pacific Islands</h2>
-<ul>
-  <li>Bora Bora, PF</li>
-  <li>Wellington, NZ</li>
-  <li>Auckland, NZ</li>
-</ul>
-
-
-</Layout>
+<html lang="en">
+  <head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header>
+      <h1>{title}</h1>
+      <img src={heroImage} alt={title} />
+      <p>{pubDate.toDateString()}</p>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
