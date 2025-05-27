@@ -1,20 +1,32 @@
 ---
-// layouts/BlogPost.astro
-const { title, description, pubDate, heroImage } = Astro.props;
+import Layout from '../layouts/BlogPost.astro';
 ---
-<html lang="en">
-  <head>
-    <title>{title}</title>
-    <meta name="description" content={description} />
-  </head>
-  <body>
-    <header>
-      <h1>{title}</h1>
-      <img src={heroImage} alt={title} />
-      <p>{pubDate.toDateString()}</p>
-    </header>
-    <main>
-      <slot />
-    </main>
-  </body>
-</html>
+
+<Layout
+	title="About Me"
+	description="Lorem ipsum dolor sit amet"
+	pubDate={new Date('May 27 2025')}
+	heroImage="/blog-placeholder-about.jpg"
+>	<h2> Purpose </h2>
+	<p>
+		The purpose of my website so far has been to familiarize myself with cloudflare hosting, and github for respositorys. So far I have learned to use sublime text in conjunction with the Github desktop app in order to make changes using branchs and upload them.
+	</p>
+<h2> Utility </h2>
+	<p>
+		This will also be a central place for information that I find useful such as the calories in fast food I like to eat. 
+	</p>
+<h2> Future Plans </h2>
+	<p>
+		Ultimately, I hope to self host this on my home server. When my plex server is servicing multiples users I hope to use my website as a sort of ticketing system to manage the directory. 
+	</p>
+	
+<h2> To-do List </h2>
+<ol>
+  <li>Password protected daily blog</li>
+  <li>Add fast food information</li>
+  <li>Ranked favorite cities</li>
+</ol>
+
+
+
+</Layout>
